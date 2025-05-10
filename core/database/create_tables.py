@@ -1,7 +1,7 @@
 from aiogram.types import CallbackQuery
 from sqlalchemy import create_engine, ForeignKey
-from sqlalchemy import Column, Integer, String, Boolean
-from sqlalchemy.orm import sessionmaker, declarative_base
+from sqlalchemy import Column, Integer, String, Boolean, Text
+from sqlalchemy.orm import sessionmaker, declarative_base, relationship
 
 from loader import dp, bot
 
@@ -17,6 +17,16 @@ class VideoProject(Base):
     id = Column(Integer, primary_key=True)
     name = Column(String(255), nullable=False)
     voices = Column(Integer, nullable=False, default=0)
+    comments = relationship("Comment", back_populates="project")
+
+
+class Comment(Base):
+    __tablename__ = "comments"
+    id = Column(Integer, primary_key=True)
+    project_id = Column(Integer, ForeignKey("videoproject.id"))
+    user_id = Column(Integer, ForeignKey("users.id"))
+    text = Column(Text, nullable=True)
+    project = relationship("VideoProject", back_populates="comments")
 
 
 class UserVote(Base):
@@ -29,3 +39,18 @@ class User(Base):
     __tablename__ = "users"
     id = Column(Integer, primary_key=True)
     username = Column(String)
+    voited = Column(Boolean, nullable=False, default=False)
+
+
+def fill_video_projects():
+    if session.query(VideoProject).count() == 0:
+        projects = [
+            VideoProject(name="Проект 1", voices=0),
+            VideoProject(name="Проект 2", voices=0),
+            VideoProject(name="Проект 3", voices=0),
+            VideoProject(name="Проект 4", voices=0),
+            VideoProject(name="Проект 5", voices=0),
+        ]
+        
+        session.add_all(projects)
+        session.commit()

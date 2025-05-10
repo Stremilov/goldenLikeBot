@@ -1,16 +1,19 @@
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
-list_kb = InlineKeyboardMarkup(
-    inline_keyboard=[
-        [InlineKeyboardButton(text="1", callback_data="btn_0")],
-        [InlineKeyboardButton(text="2", callback_data="btn_1")],
-        [InlineKeyboardButton(text="3", callback_data="btn_2")],
-        [InlineKeyboardButton(text="4", callback_data="btn_3")],
-        [InlineKeyboardButton(text="5", callback_data="btn_4")],
-        [InlineKeyboardButton(text="6", callback_data="btn_5")],
-        [InlineKeyboardButton(text="7", callback_data="btn_6")],
-        [InlineKeyboardButton(text="8", callback_data="btn_7")],
-        [InlineKeyboardButton(text="9", callback_data="btn_8")],
-        [InlineKeyboardButton(text="10", callback_data="btn_9")],
-    ]
-)
+
+def list_kb():
+    keyboard = InlineKeyboardMarkup(row_width=2, inline_keyboard=[
+        [InlineKeyboardButton(text="Проект 1", callback_data="vote_1")],
+        [InlineKeyboardButton(text="Проект 2", callback_data="vote_2")],
+        [InlineKeyboardButton(text="Проект 3", callback_data="vote_3")],
+        [InlineKeyboardButton(text="Проект 4", callback_data="vote_4")],
+        [InlineKeyboardButton(text="Проект 5", callback_data="vote_5")],
+    ])
+    return keyboard
+
+
+comment_kb = InlineKeyboardMarkup(row_width=2, inline_keyboard=[
+    [InlineKeyboardButton(text="Да", callback_data="comment_yes")],
+    [InlineKeyboardButton(text="Нет", callback_data="comment_no")],
+])
+
