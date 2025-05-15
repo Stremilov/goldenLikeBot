@@ -1,3 +1,4 @@
+import logging
 import os
 
 from dotenv import load_dotenv
@@ -23,7 +24,7 @@ def get_google_sheets_service():
 def append_comment_to_sheet(project_name: str, username: str, comment: str):
     service = get_google_sheets_service()
 
-    sheet_number = int(project_name.split()[-1])
+    sheet_number = project_name.split()[-1]
     sheet_name = f'Проект {sheet_number}'
 
     range_name = f'{sheet_name}!A:D'
@@ -37,14 +38,20 @@ def append_comment_to_sheet(project_name: str, username: str, comment: str):
     body = {
         'values': values
     }
+    logging.info(values)
     
     try:
-        service.spreadsheets().values().append(
+        logging.info("Оставляем коммент в таблице")
+        response = service.spreadsheets().values().append(
             spreadsheetId=SPREADSHEET_ID,
             range=range_name,
             valueInputOption='RAW',
             body=body
         ).execute()
+        # logging.info(result)
+        logging.info(f"Append response: {response}")
+
+        logging.info("Коммент успешно оставлен")
     except Exception as e:
 
         if 'Unable to parse range' in str(e):
@@ -58,11 +65,14 @@ def append_comment_to_sheet(project_name: str, username: str, comment: str):
                     }
                 }]
             }
+
+            logging.info("Подставка кредов")
             service.spreadsheets().batchUpdate(
                 spreadsheetId=SPREADSHEET_ID,
                 body=batch_update_request
             ).execute()
 
+            logging.info("Подставка значений")
             headers = [['Дата и время', 'Название проекта', 'Пользователь', 'Комментарий']]
             service.spreadsheets().values().update(
                 spreadsheetId=SPREADSHEET_ID,
@@ -70,11 +80,13 @@ def append_comment_to_sheet(project_name: str, username: str, comment: str):
                 valueInputOption='RAW',
                 body={'values': headers}
             ).execute()
-            
 
+            logging.info("Добавление комментария")
             service.spreadsheets().values().append(
                 spreadsheetId=SPREADSHEET_ID,
                 range=range_name,
                 valueInputOption='RAW',
                 body=body
-            ).execute() 
+            ).execute()
+
+            logging.info("Комментарий успешно сохранен везде")

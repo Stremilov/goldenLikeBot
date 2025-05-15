@@ -1,6 +1,6 @@
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 
-main_kb = ReplyKeyboardMarkup(
+main_kb = ReplyKeyboardMarkup(resize_keyboard=True,
     keyboard=[
         [KeyboardButton(text="Список работ")],
         [KeyboardButton(text="Голосование")],

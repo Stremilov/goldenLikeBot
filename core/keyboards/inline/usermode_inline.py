@@ -1,18 +1,40 @@
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
+projects = [
+        "Ни вчера, ни завтра",
+        "Не убегай",
+        "Дом",
+        "Internal noise",
+        "Рассудок",
+        "солл",
+        "Чёрные мопсы",
+        "Инсайт",
+        "Доппельгангер",
+        "slam casino - #XOXO",
+        "Работа кинотеатров в годы Блокады",
+        "ЯМЫ"
+    ]
+
 
 def list_kb():
-    keyboard = InlineKeyboardMarkup(row_width=2, inline_keyboard=[
-        [InlineKeyboardButton(text="Проект 1", callback_data="vote_1")],
-        [InlineKeyboardButton(text="Проект 2", callback_data="vote_2")],
-        [InlineKeyboardButton(text="Проект 3", callback_data="vote_3")],
-        [InlineKeyboardButton(text="Проект 4", callback_data="vote_4")],
-        [InlineKeyboardButton(text="Проект 5", callback_data="vote_5")],
+    keyboard = InlineKeyboardMarkup(resize_keyboard=True, inline_keyboard=[
+        [InlineKeyboardButton(text=f"{project}", callback_data=f"vote_{i + 1}")]
+        for i, project in enumerate(projects)
     ])
+
     return keyboard
 
 
-comment_kb = InlineKeyboardMarkup(row_width=2, inline_keyboard=[
+def read_kb():
+    keyboard = InlineKeyboardMarkup(resize_keyboard=True, inline_keyboard=[
+        [InlineKeyboardButton(text=f"{project}", callback_data=f"read_{i + 1}_{i}")]
+        for i, project in enumerate(projects)
+    ])
+
+    return keyboard
+
+
+comment_kb = InlineKeyboardMarkup(resize_keyboard=True, row_width=2, inline_keyboard=[
     [InlineKeyboardButton(text="Да", callback_data="comment_yes")],
     [InlineKeyboardButton(text="Нет", callback_data="comment_no")],
 ])

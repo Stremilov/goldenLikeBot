@@ -45,11 +45,17 @@ class User(Base):
 def fill_video_projects():
     if session.query(VideoProject).count() == 0:
         projects = [
-            VideoProject(name="Проект 1", voices=0),
-            VideoProject(name="Проект 2", voices=0),
-            VideoProject(name="Проект 3", voices=0),
-            VideoProject(name="Проект 4", voices=0),
-            VideoProject(name="Проект 5", voices=0),
+            VideoProject(name="Ни вчера, ни завтра", voices=0),
+            VideoProject(name="Не убегай", voices=0),
+            VideoProject(name="Дом", voices=0),
+            VideoProject(name="Internal noise", voices=0),
+            VideoProject(name="солл", voices=0),
+            VideoProject(name="Чёрные мопсы", voices=0),
+            VideoProject(name="Инсайт", voices=0),
+            VideoProject(name="Доппельгангер", voices=0),
+            VideoProject(name="slam casino - #XOXO", voices=0),
+            VideoProject(name="Работа кинотеатров в годы Блокады", voices=0),
+            VideoProject(name="ЯМЫ", voices=0),
         ]
         
         session.add_all(projects)

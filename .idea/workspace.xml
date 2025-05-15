@@ -4,15 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="76204ec0-c2e3-438f-88e4-e720cd69abd9" name="Changes" comment="рефакторинг + улучшение функционала">
+    <list default="true" id="76204ec0-c2e3-438f-88e4-e720cd69abd9" name="Changes" comment="сююю">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/database/create_tables.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/database/create_tables.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/keyboards/inline/usermode_inline.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/keyboards/inline/usermode_inline.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/keyboards/reply/usermode.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/keyboards/reply/usermode.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/states/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/states/states.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/utils/google_sheets.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/utils/google_sheets.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/credentials.json" beforeDir="false" afterPath="$PROJECT_DIR$/credentials.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/handlers/start.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/start.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/texts.yml" beforeDir="false" afterPath="$PROJECT_DIR$/texts.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,15 +43,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.main.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "/Users/levstremilov/PycharmProjects/goldenLikeBot/core/images"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/core/images" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/core" />
     </key>
   </component>
@@ -105,11 +113,31 @@
       <option name="project" value="LOCAL" />
       <updated>1746188979341</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="сююю">
+      <option name="closed" value="true" />
+      <created>1746897608177</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1746897608177</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="рефакторинг + улучшение функционала" />
-    <option name="LAST_COMMIT_MESSAGE" value="рефакторинг + улучшение функционала" />
+    <MESSAGE value="сююю" />
+    <option name="LAST_COMMIT_MESSAGE" value="сююю" />
   </component>
 </project>

@@ -3,16 +3,11 @@ version: '3.9'
 services:
   telegram-bot:
     build: .
-    volumes:
-      - ./Users/levstremilov/Downloads/bot_golden_like:/app
-    environment:
-      TELEGRAM_TOKEN: 7066888930:AAHrp16h-XlnYpVfS244TSn_x5dcgDk0Iog
+    env_file: .env
     depends_on:
       - sqlite-db
 
   sqlite-db:
     image: tiangolo/uwsgi-nginx-flask:python3.9
-    volumes:
-      - .//Users/levstremilov/Downloads/bot_golden_like/goldenLike.db:/app/db
     environment:
-      SQLITE_DATABASE_URI: sqlite:///db/goldenLike.db
+      SQLITE_DATABASE_URI: sqlite:///goldenLike.db
