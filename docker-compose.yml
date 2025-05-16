@@ -4,6 +4,8 @@ services:
   telegram-bot:
     build: .
     env_file: .env
+    volumes:
+      - core/images/goldenLikePhoto.jpg:/core/images/goldenLikePhoto.jpg
     depends_on:
       - sqlite-db
 
