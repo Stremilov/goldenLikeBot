@@ -66,7 +66,7 @@ async def video_top(message: types.Message):
 
 @dp.message(F.text == "Список работ")
 async def list_of_works(message: types.Message):
-    if not session.query(User).filter_by(message.from_user.username == User.username).first():
+    if not session.query(User).filter_by(username=message.from_user.username).first():
         new_user = User(username=message.from_user.username)
         session.add(new_user)
         session.commit()
@@ -79,7 +79,7 @@ async def list_of_works(message: types.Message):
 
 @dp.message(F.text == "Голосование")
 async def voting(message: types.Message):
-    if not session.query(User).filter_by(message.from_user.username == User.username).first():
+    if not session.query(User).filter_by(username=message.from_user.username).first():
         new_user = User(username=message.from_user.username)
         session.add(new_user)
         session.commit()
@@ -92,7 +92,7 @@ async def voting(message: types.Message):
 
 @dp.message(F.text == "Карта мероприятия")
 async def roadmap(message: types.Message):
-    if not session.query(User).filter_by(message.from_user.username == User.username).first():
+    if not session.query(User).filter_by(username=message.from_user.username).first():
         new_user = User(username=message.from_user.username)
         session.add(new_user)
         session.commit()
