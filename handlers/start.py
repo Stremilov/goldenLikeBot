@@ -5,6 +5,7 @@ from aiogram.filters import CommandStart, Command
 from aiogram.types import CallbackQuery
 from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import State, StatesGroup
+from sqlalchemy import desc
 
 from core.database.create_tables import session, VideoProject, UserVote, User, Comment
 from core.keyboards.reply.usermode import main_kb, cancel_kb
@@ -56,7 +57,7 @@ async def msg_start(message: types.Message):
 
 @dp.message(Command("top"))
 async def video_top(message: types.Message):
-    result = session.query(VideoProject).order_by(VideoProject.voices).limit(3)
+    result = session.query(VideoProject).order_by(desc(VideoProject.voices)).limit(3).all()
     response = "Топ команд по голосам\n\n"
     for project in result:
         response += (f"Команда: {project.name}\n"

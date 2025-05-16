@@ -49,6 +49,7 @@ def fill_video_projects():
             VideoProject(name="Не убегай", voices=0),
             VideoProject(name="Дом", voices=0),
             VideoProject(name="Internal noise", voices=0),
+            VideoProject(name="Рассудок", voices=0),
             VideoProject(name="солл", voices=0),
             VideoProject(name="Чёрные мопсы", voices=0),
             VideoProject(name="Инсайт", voices=0),

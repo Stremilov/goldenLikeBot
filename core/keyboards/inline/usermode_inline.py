@@ -18,7 +18,7 @@ projects = [
 
 def list_kb():
     keyboard = InlineKeyboardMarkup(resize_keyboard=True, inline_keyboard=[
-        [InlineKeyboardButton(text=f"{project}", callback_data=f"vote_{i}")]
+        [InlineKeyboardButton(text=f"{project}", callback_data=f"vote_{i+1}")]
         for i, project in enumerate(projects)
     ])
 
