@@ -149,7 +149,7 @@ async def process_callback(callback_data: CallbackQuery, state: FSMContext):
         project_number = int(data[2])
         logging.info("Передача информации об определенной работе")
         await callback_data.message.answer(
-            f"Описание видеоработы от автора «{projects[project_number]}»\n\n{team_description_info[int(data[1])]}",
+            f"Описание видеоработы от «{projects[project_number]}»\n\n{team_description_info[int(data[1])]}",
             reply_markup=main_kb
         )
 
