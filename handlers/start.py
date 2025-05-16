@@ -66,6 +66,10 @@ async def video_top(message: types.Message):
 
 @dp.message(F.text == "Список работ")
 async def list_of_works(message: types.Message):
+    if not session.query(User).filter_by(message.from_user.username == User.username).first():
+        new_user = User(username=message.from_user.username)
+        session.add(new_user)
+        session.commit()
     await message.answer_photo(
         photo=FSInputFile(path="core/images/goldenLikePhoto.jpg"),
         caption=txt_messages[2],
@@ -75,6 +79,10 @@ async def list_of_works(message: types.Message):
 
 @dp.message(F.text == "Голосование")
 async def voting(message: types.Message):
+    if not session.query(User).filter_by(message.from_user.username == User.username).first():
+        new_user = User(username=message.from_user.username)
+        session.add(new_user)
+        session.commit()
     await message.answer_photo(
         photo=FSInputFile(path="core/images/goldenLikePhoto.jpg"),
         caption=txt_messages[5],
@@ -84,6 +92,10 @@ async def voting(message: types.Message):
 
 @dp.message(F.text == "Карта мероприятия")
 async def roadmap(message: types.Message):
+    if not session.query(User).filter_by(message.from_user.username == User.username).first():
+        new_user = User(username=message.from_user.username)
+        session.add(new_user)
+        session.commit()
     await message.answer_photo(
         photo=FSInputFile(path="core/images/roadmap.jpg"),
         caption="",
